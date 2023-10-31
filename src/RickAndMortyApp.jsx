@@ -1,33 +1,34 @@
 import { useState } from "react";
-import { AddCategory } from "./AddCategory";
+import { AddCategory } from "./components/AddCategory";
 
 export const RickAndMortyApp = () => {
   const [categories, setCategories] = useState(["Hola"]);
 
-  const onAddCategory = (onNewCategory ) => {
-    if (categories.includes(onNewCategory)) {
-        return
-    }
-    setCategories([onNewCategory,...categories]);
+  const onAddCategory = (newCategory) => {
+
+    setCategories([...categories, newCategory]);
+
   };
 
   return (
     <>
-      {/* titulo */}
-      <h3>RickAndMortyApp</h3>
+      {/* Titulo */}
+      <h1>Rick And Morty Card</h1>
 
-      {/* input */}
-      <AddCategory setCategories={setCategories}/>
+      {/* Input */}
 
-      {/*listado card */}
+      <AddCategory
+      
+      onNewCategory={onAddCategory}/>
 
-      <button onClick={onAddCategory}>Add</button>
+
+
       <ol>
         {categories.map((event) => {
           return <li key={event}>{event}</li>;
         })}
       </ol>
-      {/*card item */}
+      {/*gif items */}
     </>
   );
 };

@@ -1,29 +1,29 @@
 import { useState } from "react";
 
 export const AddCategory = ({ onNewCategory }) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputvalue, setinputValue] = useState("");
 
-  const onInputChange = (event) => {
-    setInputValue(event.target.value);
+  const onInputChange = ({ target }) => {
+    setinputValue(target.value);
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (inputValue.trim().length <= 1) return {};
-    onNewCategory(inputValue.trim());
-    setInputValue("");
+    if (inputvalue.trim().length <= 1) return;
+
+   onNewCategory( inputvalue.trim())
+    setinputValue("");
   };
+
   return (
     <form onSubmit={onSubmit}>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="searh"
-          value={inputValue}
-          onChange={onInputChange}
-        />
-      </div>
+      <input
+        type="text"
+        placeholder="search"
+        value={inputvalue}
+        onChange={onInputChange}
+      />
     </form>
   );
 };
