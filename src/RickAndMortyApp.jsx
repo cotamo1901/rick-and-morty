@@ -6,6 +6,11 @@ export const RickAndMortyApp = () => {
 
   const onAddCategory = (newCategory) => {
 
+
+    if (categories.includes(newCategory)) return 
+
+
+    
     setCategories([...categories, newCategory]);
 
   };
@@ -19,7 +24,11 @@ export const RickAndMortyApp = () => {
 
       <AddCategory
       
-      onNewCategory={onAddCategory}/>
+      onNewCategory={onAddCategory}
+      
+      
+      />
+
 
 
 
